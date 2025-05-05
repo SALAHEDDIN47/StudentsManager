@@ -15,6 +15,7 @@ const Create = () => {
         e.preventDefault() //preventing form default submission behavior
         if(!values.name || !values.email || !values.gender || !values.age ){
             alert('all field are required');
+            return;
         }
 
         axios.post('/add_user',values)
@@ -31,7 +32,7 @@ const Create = () => {
                 <div className="d-flex justify-content-end">
                     <Link to="/" className='btn btn-success'>Home</Link>
                 </div>
-                <form onSubmit={handleSubmit}>
+                <form  onSubmit={handleSubmit}>
                     <div className="form-group my-3">
                         <label htmlFor="name">Name </label>
                         <input type="text" name='name' value={values.name} onChange={(e)=> setValues({...values, name: e.target.value})} />
